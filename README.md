@@ -8,7 +8,7 @@ I'm attempting to create a workflow that runs once in each of these cases:
 - adding a label to an existing PR
 - pushing to a PR that contains a label
 
-In many cases, when _opening a PR containing the label in question_, the action created from the `pull_request.labeled` event in the workflow runs _but does not show its status in the mergability details view that lists all checks_.
+In many cases, when _opening a PR containing the label in question_, the action created from the `pull_request.labeled` event in the workflow runs _but does not show its status in the mergeability details view that lists all checks_.
 
 Here are a few examples:
 
@@ -25,7 +25,7 @@ concurrency:
 
 Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2 
 
-In the above PR, you can see that a comment was made but no Action status is present in the mergability detail view. **Please note that this PR was run before the README.md conflicts existed.**
+In the above PR, you can see that a comment was made but no Action status is present in the mergeability detail view. **Please note that this PR was run before the README.md conflicts existed.**
 
 #### Without concurrency
 
@@ -35,7 +35,7 @@ Workflow: https://github.com/urcomputeringpal/actions-bug-repros/blob/main/.gith
 
 Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2
 
-In the above PR, you can see that two comments were made but only one Actions status is present in the mergability detail view below. Why are the checks created by the `pull_request.labeled` events not being associated with the PR? **Please note that this PR was run before the README.md conflicts existed.**
+In the above PR, you can see that two comments were made but only one Actions status is present in the mergeability detail view below. Why are the checks created by the `pull_request.labeled` events not being associated with the PR? **Please note that this PR was run before the README.md conflicts existed.**
 
 #### Labels added after initial PR open
 
