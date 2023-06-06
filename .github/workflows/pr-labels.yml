@@ -1,0 +1,27 @@
+name: pr labels
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - synchronize
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+    cancel-in-progress: true
+    
+jobs:
+  comment:
+    if: |
+      ( github.event.action == 'labeled' && github.event.label.name == 'comment') ||
+      ( github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'comment') )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Hello from a concurrency limited ${{ github.event_name }} ${{ github.event.action }} event
