@@ -23,9 +23,9 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
 ```
 
-Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2
+Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2 
 
-In the above PR, you can see that a comment was made but no Action status is present in the mergability detail view.
+In the above PR, you can see that a comment was made but no Action status is present in the mergability detail view. **Please note that this PR was run before the README.md conflicts existed.**
 
 #### Without concurrency
 
@@ -35,4 +35,5 @@ Workflow: https://github.com/urcomputeringpal/actions-bug-repros/blob/main/.gith
 
 Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2
 
-In the above PR, you can see that two comments were made but only one Actions status is present in the mergability detail view below. Why are the checks created by the `pull_request.labeled` events not being associated with the PR?
+In the above PR, you can see that two comments were made but only one Actions status is present in the mergability detail view below. Why are the checks created by the `pull_request.labeled` events not being associated with the PR? **Please note that this PR was run before the README.md conflicts existed.**
+
