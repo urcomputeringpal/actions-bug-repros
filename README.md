@@ -36,4 +36,3 @@ Workflow: https://github.com/urcomputeringpal/actions-bug-repros/blob/main/.gith
 Affected PR: https://github.com/urcomputeringpal/actions-bug-repros/pull/2
 
 In the above PR, you can see that two comments were made but only one Actions status is present in the mergability detail view below. Why are the checks created by the `pull_request.labeled` events not being associated with the PR? **Please note that this PR was run before the README.md conflicts existed.**
-
