@@ -2,7 +2,6 @@ name: pr labels
 on:
   pull_request:
     types:
-      - opened
       - labeled
       - synchronize
 
@@ -16,6 +15,10 @@ jobs:
       ( github.event.action == 'labeled' && github.event.label.name == 'comment') ||
       ( github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'comment') )
     runs-on: ubuntu-latest
+    name: |
+      contains(github.event.pull_request.labels.*.name, 'comment') &&
+      'Posting a comment...' ||
+      'Add comment label to post a comment'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
