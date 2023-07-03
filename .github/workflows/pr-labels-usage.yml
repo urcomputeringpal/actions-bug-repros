@@ -1,0 +1,22 @@
+name: pr labels usage
+on:
+  pull_request:
+    types:
+      # this event is handled in a separate Actions workflow to workaround a race condition
+      - opened
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+    cancel-in-progress: true
+    
+jobs:
+  usage:
+    name: >
+      ${{
+        contains(github.event.pull_request.labels.*.name, 'comment') &&
+        'Posting a comment...' ||
+        'Add comment label to post a comment'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'true'
