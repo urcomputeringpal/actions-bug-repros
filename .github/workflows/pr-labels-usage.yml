@@ -3,7 +3,6 @@ on:
   pull_request:
     types:
       # this event is handled in a separate Actions workflow to workaround a race condition
-      #
       - opened
 
 concurrency:
