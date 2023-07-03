@@ -2,7 +2,7 @@ name: pr labels usage
 on:
   pull_request:
     types:
-      # workaround an Actions race condition
+      # this event is handled in a separate Actions workflow to workaround a race condition
       - opened
 
 concurrency:
