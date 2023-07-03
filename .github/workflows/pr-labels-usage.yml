@@ -11,10 +11,12 @@ concurrency:
     
 jobs:
   usage:
-    name: |
-      contains(github.event.pull_request.labels.*.name, 'comment') &&
-      'Posting a comment...' ||
-      'Add comment label to post a comment'
+    name: >
+      ${{
+        contains(github.event.pull_request.labels.*.name, 'comment') &&
+        'Posting a comment...' ||
+        'Add comment label to post a comment'
+      }}
     runs-on: ubuntu-latest
     steps:
       - run: 'true'
